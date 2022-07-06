@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Sign-up{% endblock title %}
+
+{% block content %}
+<h1 class="text-center">Sign-up</h1>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-12">
+      <div class="col-12 col-md-9 col-lg-7 col-xl-6 m-auto">
+        <form class="py-4 px-1 px-sm-5 d-grid mx-auto shadow-lg rounded-2" action="{% url 'sign-up' %}" method="post">
+          {% csrf_token %}
+          <div class="col-9 mb-3 mx-auto text-center">
+            <p class="text-center">Please use strong password</p>
+          </div>
+          <div class="col-12 mx-auto">
+            <div class="container d-sm-flex mb-2">
+              <input type="text" name="first_name" class="form-control rounded-1 my-auto shadow-sm me-sm-1 mb-2 mb-sm-0"
+                placeholder="First name (optional)" id="first_name">
+              <input type="text" name="last_name" class="form-control rounded-1 my-auto shadow-sm ms-sm-1"
+                placeholder="Last name (optional)" id="last_name">
+            </div>
+            <div class="container">
+              <input type="email" name="email" class="form-control rounded-1 my-auto shadow-sm"
+                placeholder="Email address" id="email" required>
+            </div>
+            <div class="container">
+              <input type="password" name="password" class="form-control rounded-1 my-2 shadow-sm"
+                placeholder="Password" id="password" required>
+              <input type="password" name="password2" class="form-control rounded-1 my-2 shadow-sm"
+                placeholder="Confirm Password" id="password2" required>
+            </div>
+            <div class="container text-center my-3">
+              <label for="terms">Accept the Terms of service</label>
+              <input type="checkbox" class="my-2 align-middle" name="terms" id="terms" required checked>
+            </div>
+          </div>
+          <div class="d-grid gap-2 mb-4 mt-2 col-6 mx-auto">
+            <button type="submit" class="btn btn-danger rounded-1">Sign-up</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

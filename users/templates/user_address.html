@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}Address list{% endblock title %}
+{% block style %}{% endblock style %}
+
+{% block content %}
+<div class="my-2 text-center">
+  <h1>Address list</h1>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-9 col-lg-7 mx-auto">
+      <ol class="list-group d-grid col-12 col-lg-11 col-xl-9 mx-auto mt-4">
+        {% for address in address_list %} {% if address.default %}
+        <li class="list-group-item d-lg-flex justify-content-between align-items-start pt-0">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold" data-bs-toggle="tooltip" data-bs-placement="bottom"
+              title="This is the Default Address">
+              {{ address.address1 }} {{ address.address2 }}
+              <i class="bi bi-check2-all text-success fs-5 align-bottom"></i>
+            </div>
+            {{ address.country}} {{ address.city}} {{ address.zipcode }} {{ address.full_name }}
+          </div>
+          <a class="mx-2 align-self-center" href="{% url 'edit-address' address.id %}?next=/user-address/"
+            data-bs-toggle="tooltip" data-bs-placement="bottom" title="Modify Address"><i
+              class="bi bi-pencil-square"></i></a>
+          <a class="mx-2 align-self-center text-danger" href="{% url 'del-address' address.id %}?next=/user-address/"
+            data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete Address"><i
+              class="bi bi-trash3-fill"></i></a>
+        </li>
+        {% else %}
+        <li class="list-group-item d-lg-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">{{ address.address1 }} {{ address.address2 }}</div>
+            {{ address.country}} {{ address.city}} {{ address.zipcode }} {{ address.full_name }}
+          </div>
+          <a class="mx-2 align-self-center" href="{% url 'edit-address' address.id %}?next=/user-address/"
+            data-bs-toggle="tooltip" data-bs-placement="bottom" title="Modify Address"><i
+              class="bi bi-pencil-square"></i></a>
+          <a class="mx-2 align-self-center text-success" href="{% url 'set-default' address.id %}?next=/user-address/"
+            data-bs-toggle="tooltip" data-bs-placement="bottom" title="Set default address"><i
+              class="bi bi-check2-square"></i></a>
+          <a class="mx-2 align-self-center text-danger" href="{% url 'del-address' address.id %}?next=/user-address/"
+            data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete Address"><i
+              class="bi bi-trash3-fill"></i></a>
+        </li>
+        {% endif %} {% endfor %}
+      </ol>
+      <div class="d-grid col-6 col-lg-4 col-xl-4 mx-auto mt-4">
+        <a href="{% url 'new-address' %}?next=/user-address/" class="btn btn-sm btn-primary mx-1">Add address</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}Product details{% endblock title %}
+
+{% block content %}
+<div class="my-2 text-center">
+  <h1>Product details</h1>
+</div>
+<div class="container">
+  <div class="row g-5 mt-2">
+    <div class="col-md-10 col-lg-8 order-md-last">
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-primary">Product</span>
+      </h4>
+      <ul class="list-group mb-3">
+        <li class="list-group-item justify-content-between lh-sm">
+          <div>
+            <h6 class="my-0 my-2">Title: {{ product_details.title }}</h6>
+            <p class="text-danger my-2">Price: &euro;{{ product_details.price }}</p>
+          </div>
+          <h6 class="my-1">Description: </h6>
+          <p>{{ product_details.description }}</p>
+        </li>
+      </ul>
+      <div class="col-10 col-sm-4 d-grid mx-auto">
+        {% if product_details.is_available %}
+        <a href="/cart-add/{{product_details.id}}/" class="btn btn-sm btn-primary text-center">Add to cart</a>
+        {% else %}
+        <span class="text-danger">Out of stock</span>
+        {% endif %}
+      </div>
+
+    </div>
+    <div class="col-md-10 col-lg-12">
+      <div class="col-12 col-md-8 col-xl-4 col-lg-5 col-md-6">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner p-1 rounded">
+
+            <div class="carousel-item active">
+              <img src="{{ product_details.get_image }}" class="img-fluid shadow-lg bg-body rounded"
+                alt="{{ product_details.title }}">
+            </div>
+            {% for img in images %}
+            <div class="carousel-item">
+              <img src="{{ img.image.url }}" height="240" class="img-fluid shadow-lg bg-body rounded"
+                alt="{{ product_details.title }}">
+            </div>
+            {% endfor %}
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon text-bg-danger rounded-2" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon text-bg-danger rounded-2" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock content %}

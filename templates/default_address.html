@@ -1,0 +1,76 @@
+<form class="needs-validation" novalidate="false">
+    <input type='hidden' name="post_address" value="post_address">
+    <div class="row g-3">
+      <div class="col-sm-6">                  
+        <label for="firstName" class="form-label">Full name</label>
+        <input type="text" class="form-control" name="full_name" id="firstName" placeholder="" value="{{ address.full_name }}" required>
+        <div class="invalid-feedback">
+          Valid first name is required.
+        </div>
+      </div>
+
+      <div class="col-12">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" name="email" id="email" placeholder="you@example.com" required value="{{ address.email }}">
+        <div class="invalid-feedback">
+          Please enter a valid email address for shipping updates.
+        </div>
+      </div>
+
+      <div class="col-12">
+        <label for="address" class="form-label">Address</label>
+        <input type="text" class="form-control" name="address1" id="address" placeholder="1234 Main St Apartment or suite" required value="{{ address.address1 }}">
+        <div class="invalid-feedback">
+          Please enter your shipping address.
+        </div>
+      </div>
+
+      <div class="col-12">
+        <label for="address2" class="form-label">Address 2 <span class="text-muted">(Optional)</span></label>
+        <input type="text" class="form-control" name="address2" id="address2" placeholder="Apartment or suite" value="{{ address.address2 }}">
+      </div>
+
+      <div class="col-md-5">
+        <label for="country" class="form-label">Country</label>
+        <select class="form-select" name="country" id="country" required>
+          <option selected value="{{ address.country }}">{{ address.country }}</option>
+        </select>
+        <div class="invalid-feedback">
+          Please select a valid country.
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <label for="state" class="form-label">State</label>
+        <select class="form-select" name="city" id="state" required>
+          <option selected value="{{ address.city }}">{{ address.city }}</option>
+        </select>
+        <div class="invalid-feedback">
+          Please provide a valid state.
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <label for="zip" class="form-label">Zip</label>
+        <input type="text" class="form-control" name="zipcode" id="zip" placeholder="Postal code" required value="{{ address.zipcode }}">
+        <div class="invalid-feedback">
+          Zip code required.
+        </div>
+      </div>
+    </div>
+    
+    <hr class="my-4">  
+
+    <h4 class="mb-3">Payment</h4>
+
+    <div class="my-3">
+      <div class="form-check">
+        <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked="" required="">
+        <label class="form-check-label" for="credit">Credit card</label>
+    </div>
+
+    <hr class="my-4">
+    <div class="d-grid col-4 m-auto">
+      <button class="btn btn-primary btn-lg" type="submit">Pay</button>
+    </div>
+  </form>

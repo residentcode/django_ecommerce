@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% block title %}Billing address{% endblock title %}
+{% block content %}
+
+<h1 class="my-4 text-center">Billing address</h1>
+<div class="container-fluid m-2">
+  <div class="col-md-7 col-lg-8 mx-auto">
+    <form class="needs-validation form-control shadow-lg p-4 p-xl-5" novalidate="false"
+      action="{% if address_id %}{% url 'edit-address' address_id %}{% else %}{% url 'new-address' %}{% endif %}"
+      method="post">
+      {% csrf_token %}
+
+      <div class="row g-3">
+        <div class="col-sm-6">
+          <label for="firstName" class="form-label">Full name</label>
+          <input type="text" class="form-control shadow-sm" name="full_name" id="firstName" placeholder="Full Name"
+            value="{{ user_address.full_name }}" required>
+          <div class="invalid-feedback">
+            Valid Full name is required.
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <label for="lastName" class="form-label">Phone</label>
+          <input type="text" class="form-control shadow-sm" name="phone" placeholder="Phone number"
+            value="{{ user_address.phone }}" required>
+        </div>
+
+        <div class="col-12">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control shadow-sm" name="email" id="email" placeholder="Email" required
+            value="{{ user_address.email }}">
+          <div class="invalid-feedback">
+            Please enter a valid email address for shipping updates.
+          </div>
+        </div>
+
+        <div class="col-12">
+          <label for="address" class="form-label">Address</label>
+          <input type="text" class="form-control shadow-sm" name="address1" id="address"
+            placeholder="1234 Main St Apartment or suite" required value="{{ user_address.address1 }}">
+          <div class="invalid-feedback">
+            Please enter your shipping address.
+          </div>
+        </div>
+
+        <div class="col-12">
+          <label for="address2" class="form-label">Address 2 <span class="text-muted">(Optional)</span></label>
+          <input type="text" class="form-control shadow-sm" name="address2" id="address2"
+            placeholder="Apartment or suite" value="{{ user_address.address2 }}">
+        </div>
+
+        <div class="col-md-5">
+          <label for="country" class="form-label">Country</label>
+          <input type="text" class="form-control shadow-sm" name="country" id="country" placeholder="Country"
+            value="{{ user_address.country}}" required>
+        </div>
+
+        <div class="col-md-4">
+          <label for="state" class="form-label">State</label>
+          <input class="form-control shadow-sm" name="city" id="state" required placeholder="City"
+            value="{{ user_address.city }}">
+        </div>
+
+        <div class="col-md-3">
+          <label for="zip" class="form-label">Zip</label>
+          <input type="text" class="form-control shadow-sm" name="zipcode" id="zip" placeholder="Postal code" required
+            value="{{ user_address.zipcode }}">
+          <div class="invalid-feedback">
+            Zip code required.
+          </div>
+        </div>
+      </div>
+
+      <hr class="my-4">
+      <div class="d-grid col-9 col-sm-6 col-md-8 col-lg-4 mx-auto shadow-lg">
+        <button class=" btn btn-primary rounded-1 btn-md shadow-sm" type="submit">Save address</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock content %}

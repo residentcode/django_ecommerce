@@ -1,0 +1,241 @@
+[{
+        "model": "product.category",
+        "pk": 1,
+        "fields": {
+            "title": "Smart phone",
+            "slug": "smart-phone"
+        }
+    },
+    {
+        "model": "product.category",
+        "pk": 2,
+        "fields": {
+            "title": "Android tablet",
+            "slug": "android-tablet"
+        }
+    },
+    {
+        "model": "product.category",
+        "pk": 3,
+        "fields": {
+            "title": "IOS tablet",
+            "slug": "ios-tablet"
+        }
+    },
+    {
+        "model": "product.category",
+        "pk": 4,
+        "fields": {
+            "title": "AMD laptop",
+            "slug": "amd-laptop"
+        }
+    },
+    {
+        "model": "product.category",
+        "pk": 5,
+        "fields": {
+            "title": "Intel laptop",
+            "slug": "intel-laptop"
+        }
+    },
+    {
+        "model": "product.category",
+        "pk": 6,
+        "fields": {
+            "title": "Apple laptop",
+            "slug": "apple-laptop"
+        }
+    },
+    {
+        "model": "product.category",
+        "pk": 7,
+        "fields": {
+            "title": "Coding courses",
+            "slug": "coding-courses"
+        }
+    },
+    {
+        "model": "product.product",
+        "pk": 1,
+        "fields": {
+            "category": 4,
+            "title": "Ryzen 16gb",
+            "slug": "ryzen-16gb",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent mattis urna vitae tincidunt vulputate. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vestibulum vel tempus mauris, sit amet semper nisi. Duis iaculis mauris ut sem consequat cursus nec vel magna.",
+            "quantity": 31,
+            "price": "129.79",
+            "image": "products/35_640.jpg",
+            "thumbnail": "products/35_640_qtL9CtB.jpg",
+            "date_added": "2022-06-22T18:18:04.665Z",
+            "in_stock": true
+        }
+    },
+    {
+        "model": "product.product",
+        "pk": 2,
+        "fields": {
+            "category": 2,
+            "title": "Android 16gb 10.1",
+            "slug": "android-16gb-101",
+            "description": "Morbi ut venenatis enim. Ut eros purus, molestie et tellus sed, vestibulum maximus lacus. Suspendisse vehicula facilisis interdum. Fusce accumsan, ligula non placerat sodales, magna tortor vulputate purus.",
+            "quantity": 0,
+            "price": "151.99",
+            "image": "products/64_640.jpg",
+            "thumbnail": "products/64_640_VNAQCaM.jpg",
+            "date_added": "2022-06-22T18:31:28.132Z",
+            "in_stock": true
+        }
+    },
+    {
+        "model": "product.product",
+        "pk": 3,
+        "fields": {
+            "category": 6,
+            "title": "Apple 23gb 3600",
+            "slug": "apple-23gb-3600",
+            "description": "Pellentesque lectus nisi, feugiat id ex vel, convallis finibus massa. Nulla auctor, ex et luctus viverra, orci purus facilisis lorem, tempor tincidunt risus quam eget magna. Curabitur vel commodo justo, eget ullamcorper tellus.",
+            "quantity": 25,
+            "price": "123.55",
+            "image": "products/c1_640.jpg",
+            "thumbnail": "products/c1_640_hH3mN0E.jpg",
+            "date_added": "2022-06-22T18:34:04.231Z",
+            "in_stock": true
+        }
+    },
+    {
+        "model": "product.product",
+        "pk": 4,
+        "fields": {
+            "category": 3,
+            "title": "IOS 12.2 inch 32gb",
+            "slug": "ios-122-inch-32gb",
+            "description": "Curabitur facilisis mauris vitae massa convallis sagittis. Praesent scelerisque viverra sapien sed posuere. Pellentesque feugiat rutrum enim, at venenatis quam volutpat non. Proin ut tortor sit amet nibh tristique tristique.",
+            "quantity": 12,
+            "price": "179.99",
+            "image": "products/930d_640.jpg",
+            "thumbnail": "products/930d_640_z6AyQ8R.jpg",
+            "date_added": "2022-06-22T18:35:19.333Z",
+            "in_stock": true
+        }
+    },
+    {
+        "model": "product.product",
+        "pk": 5,
+        "fields": {
+            "category": 5,
+            "title": "Intel r6800 8gb",
+            "slug": "intel-r6800-8gb",
+            "description": "Proin laoreet massa purus, eu aliquet lacus tempus vel. Sed feugiat nisi erat, id convallis dolor tempor eu. Sed eget nisl sit amet lorem mollis consequat. Nam sodales purus nec purus elementum ullamcorper.",
+            "quantity": 13,
+            "price": "100.99",
+            "image": "products/ab8_640.jpg",
+            "thumbnail": "products/ab8_640_LeNjGzr.jpg",
+            "date_added": "2022-06-22T18:36:29.589Z",
+            "in_stock": true
+        }
+    },
+    {
+        "model": "product.product",
+        "pk": 6,
+        "fields": {
+            "category": 2,
+            "title": "HW s600 32gb black",
+            "slug": "hw-s600-32gb-black",
+            "description": "Vestibulum accumsan odio euismod, maximus nunc id, tincidunt ante. Suspendisse congue molestie mi non dictum. Aenean fringilla velit commodo, posuere tellus sollicitudin, efficitur magna.",
+            "quantity": 11,
+            "price": "147.80",
+            "image": "products/bc1_640.jpg",
+            "thumbnail": "products/bc1_640_oIqkixX.jpg",
+            "date_added": "2022-06-22T18:58:49.110Z",
+            "in_stock": true
+        }
+    },
+    {
+        "model": "product.product",
+        "pk": 7,
+        "fields": {
+            "category": 1,
+            "title": "XOS Smart phone",
+            "slug": "xos-smart-phone",
+            "description": "Vestibulum vulputate elit tempus libero laoreet, ac eleifend nibh tempus. Donec et magna quis erat malesuada maximus at sit amet odio. Curabitur molestie nisi sed ex tempor bibendum.",
+            "quantity": 11,
+            "price": "99.40",
+            "image": "products/d17_640.jpg",
+            "thumbnail": "products/d17_640_edYtUny.jpg",
+            "date_added": "2022-07-03T17:17:10.351Z",
+            "in_stock": true
+        }
+    },
+    {
+        "model": "product.product",
+        "pk": 8,
+        "fields": {
+            "category": 7,
+            "title": "Javascript course",
+            "slug": "javascript-course",
+            "description": "Nunc scelerisque elit eu ex gravida malesuada. Cras non auctor dui, id consectetur dui. Praesent quis eros imperdiet odio varius suscipit.",
+            "quantity": 0,
+            "price": "144.80",
+            "image": "products/c1_640_uwkr3fF.jpg",
+            "thumbnail": "products/cd1_640.jpg",
+            "date_added": "2022-07-03T17:54:01.379Z",
+            "in_stock": true
+        }
+    },
+    {
+        "model": "product.product",
+        "pk": 9,
+        "fields": {
+            "category": 7,
+            "title": "Python course",
+            "slug": "python",
+            "description": "usce et mi lorem. Vivamus vestibulum vehicula mauris id dictum. Ut sit amet efficitur est. Nam lacinia velit eu sollicitudin vulputate.",
+            "quantity": 10,
+            "price": "170.43",
+            "image": "products/bc1_640_kvR5Bso.jpg",
+            "thumbnail": "products/bc1_640_uF3rNpt.jpg",
+            "date_added": "2022-07-03T17:54:47.176Z",
+            "in_stock": true
+        }
+    },
+    {
+        "model": "product.image",
+        "pk": 1,
+        "fields": {
+            "images": 3,
+            "image": "products/images/42_640.jpg"
+        }
+    },
+    {
+        "model": "product.image",
+        "pk": 2,
+        "fields": {
+            "images": 3,
+            "image": "products/images/993_640.jpg"
+        }
+    },
+    {
+        "model": "product.image",
+        "pk": 3,
+        "fields": {
+            "images": 3,
+            "image": "products/images/900ad_640.png"
+        }
+    },
+    {
+        "model": "product.image",
+        "pk": 4,
+        "fields": {
+            "images": 7,
+            "image": "products/images/cd1_640.jpg"
+        }
+    },
+    {
+        "model": "product.image",
+        "pk": 5,
+        "fields": {
+            "images": 7,
+            "image": "products/images/cd1_640_C4vzDjp.jpg"
+        }
+    }
+]

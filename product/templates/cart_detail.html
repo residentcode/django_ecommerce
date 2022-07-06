@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load mathfilters %}
+{% load static %}
+{% block style %}{% endblock style %}
+{% block title %}Cart details{% endblock title %}
+{% block content %}
+<div class="my-2 text-center">
+  <h1>Cart details</h1>
+</div>
+<div class="container mt-5">
+  <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
+    <div class="col-12 col-lg-8 col-xl-7 m-auto">
+      <ol class="list-group">
+        {% for key,val in request.session.cart.items %}
+        <li class="list-group-item px-1 d-sm-flex justify-content-between align-items-start">
+          <div class="ms-md-2 ms-1 me-auto">
+            <div class="col-12 d-sm-flex justify-content-around">
+              <div class="col-4 col-sm-3">
+                <img class="img-fluid rounded-2" src="{{ val.image }}" alt="">
+              </div>
+
+              <div class="col-12 my-2 my-sm-0 col-sm-8">
+                <div class="fw-bold">Item: {{ val.title }}</div>
+                <div>Price: &euro;{{ val.price|mul:val.quantity }}</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-1 float-start align-self-center float-sm-none">
+            <a class="text-decoration-none" href="{% url 'cart-remove' val.product_id %}"><i
+                class="bi bi-trash text-danger"></i></a>
+          </div>
+          <div class="col-3 col-sm-3 align-self-center d-inline ms-4 ms-sm-0">
+            <a class="text-decoration-none px-2" href="{% url 'item-decrement' val.product_id %}"><i
+                class="bi bi-arrow-left-square-fill"></i></a>
+            <span class="badge text-dark rounded-pill">{{ val.quantity }}</span>
+            <a class="text-decoration-none px-2" href="{% url 'item-increment' val.product_id %}"><i
+                class="bi bi-arrow-right-square-fill text-success"></i></a>
+          </div>
+        </li>
+        {% endfor %}
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Total: &euro;{{ total_bill }}</div>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>
+<div class="d-grid gap-0 col-2 mx-auto mt-3">
+  {% if total_bill %}
+  <a href="{% url 'checkout' %}" class="btn btn-primary rounded-1">Checkout</a>
+  {% endif %}
+</div>
+{% endblock content %}

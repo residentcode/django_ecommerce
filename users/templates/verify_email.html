@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Verify email{% endblock title %}
+{% block content %}
+<h1 class="text-center">Verify email</h1>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-12">
+      <div class="col-12 col-md-9 col-lg-7 col-xl-5 m-auto">
+        <form class="py-4 px-1 px-sm-5 d-grid mx-auto shadow-lg rounded-2" action="{{request.path}}" method="post">
+          {% csrf_token %}
+          <div class="col-9 mb-3 mx-auto text-center">
+            <p class="text-center">Please enter the code from your email</p>
+          </div>
+          <div class="col-12 mx-auto">
+            <div class="container">
+              <input type="text" name="verify-code" class="form-control rounded-1 my-2 shadow-sm"
+                placeholder="Please enter the code" pattern="\d{6}" id="verify-code" required>
+            </div>
+          </div>
+          <div class="d-grid gap-2 my-4 col-6 mx-auto">
+            <button type="submit" class="btn btn-danger rounded-1">Verify</button>
+          </div>
+          {% if messages %}
+          <ul class="list-group mx-auto">
+            {% for message in messages %}
+            <li{% if message.tags %}
+              class="list-group-item list-group-item-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %}"
+              {% endif %}>{{ message }}</li>
+              {% endfor %}
+          </ul>
+          {% endif %}
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

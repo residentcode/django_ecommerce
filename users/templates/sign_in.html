@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Sign-in{% endblock title %}
+
+{% block content %}
+<h1 class="text-center">Sign-in</h1>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-12">
+      <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 m-auto">
+        <form class="py-4 px-3 d-grid mx-auto shadow-lg rounded-2" action="{% url 'sign-in' %}" method="post">
+          {% csrf_token %}
+          <div class="col-4 mb-3 mx-auto text-center">
+            <i class="bi bi-shield-lock fs-1 mx-auto"></i>
+          </div>
+          <div class="col-12 col-sm-10 col-xl-9 mx-auto">
+            <input type="email" name="email" class="form-control rounded-1 my-2 shadow-sm"
+              placeholder="your email address" id="email" required>
+            <input type="password" name="password" class="form-control rounded-1 my-2 shadow-sm"
+              placeholder="your password" id="password" required>
+          </div>
+          <div class="d-grid gap-2 mb-4 mt-3 col-6 mx-auto">
+            <button type="submit" class="btn btn-danger rounded-1">Sign-in</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

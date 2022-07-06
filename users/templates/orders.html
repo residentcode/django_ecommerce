@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Orders{% endblock title %}
+
+{% block content %}
+<h1 class="text-center">Orders</h1>
+<div class="container orders mt-4">
+	<div class="row">
+		<div class="col-auto col-md-9 m-auto">
+			<div class="table-responsive-md">
+				<table class="table align-middle table-hover">
+					<thead>
+						<tr>
+							<th scope="col">Order ID</th>
+							<th scope="col">Order number</th>
+							<th scope="col">Transaction ID</th>
+							<th scope="col">Order status</th>
+							<th scope="col">Customer</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for order in orders %}
+						<tr>
+							<th scope="row">{{ order.id }}</th>
+							<td>{{ order.order_number }}</td>
+							<td>{{ order.stripe_id }}</td>
+							<td>{{ order.status }}</td>
+							<td>{{ order.user }}</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+	</div>
+</div>
+{% endblock content %}

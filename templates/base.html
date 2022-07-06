@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}{% endblock title %}</title>
+  {% block stripe %}{% endblock stripe %}
+  {% include 'bootstrap_cdn.html' %}
+  {% block style %}{% endblock style %}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+  {% include 'nav.html' %}
+  <div class="d-grid text-center mx-auto">
+    {% if messages %}
+    <ul class="list-group mx-auto rounded-1">
+      {% for message in messages %}
+      <li{% if message.tags %}
+        class="list-group-item list-group-item-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %}"
+        {% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+  {% block content %}
+
+  {% endblock content %}
+
+  {% include 'footer.html' %}
+
+  {% block script %}{% endblock script %}
+  {% include 'bootstrap_script.html' %}
+  {% load static %}
+  <script type="application/javascript" src="{% static 'js/sweetalert2.all.min.js' %}"></script>
+  {% load sweetify %}
+  {% sweetify %}
+</body>
+
+</html>
