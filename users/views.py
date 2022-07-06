@@ -29,8 +29,7 @@ def new_address(request):
         'phone': request.POST.get('phone'),
     }
     user_address.objects.create(**post_dict)
-    redirect_to_next(request)
-    return redirect('user-address')
+    return redirect(redirect_to_next(request))
 
 
 @login_required
