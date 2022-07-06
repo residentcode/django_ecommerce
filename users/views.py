@@ -155,7 +155,7 @@ def sign_up(request):
         messages.error(request, 'Email address already in use')
         return redirect('sign-up')
     verify_code = random_num(6)
-    new_user = user.objects.create(
+    new_user = user.objects.create_user(
         first_name=first_name,
         last_name=last_name,
         email=email,
