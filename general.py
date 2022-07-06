@@ -3,5 +3,5 @@ import string
 
 
 def random_num(rng):
-    rang_number = ''.join(random.SystemRandom().choice(string.digits) for _ in range(rng))
-    return rang_number
+    random_number = ''.join(random.SystemRandom().choice(string.digits) for _ in range(rng))
+    return random_number
