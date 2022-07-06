@@ -1,5 +1,6 @@
 from django.core.mail import EmailMessage
 from email.utils import make_msgid
+from django.forms import model_to_dict
 from django.shortcuts import redirect, render
 from redirect_to_next import redirect_to_next
 from stripe_payment.models import Order, Invoice
@@ -7,6 +8,7 @@ from .models import Address
 from django.contrib.auth import logout, login, authenticate, get_user_model
 from django.contrib import messages
 from general import random_num
+from django.contrib.auth.hashers import make_password
 from django.contrib.auth.decorators import login_required
 
 user = get_user_model()
