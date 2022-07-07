@@ -139,7 +139,7 @@ def sign_up(request):
         messages.error(request, 'Please enter password')
         return redirect('sign-up')
     if password != password2:
-        messages.error(request, 'Password does not match')
+        messages.error(request, 'Passwords do not match')
         return redirect('sign-up')
 
     check_user = user.objects.filter(email=email).first()
@@ -157,7 +157,7 @@ def sign_up(request):
 
     from_email = 'admin@example.com'
     MESSAGE_ID = make_msgid(domain=from_email.split("@")[1])
-    subject = f'Your verification code {new_user.pk}'
+    subject = f'Your verification code {verify_code}'
     html_content = f"Please enter your verification code \n {verify_code} \n in http://127.0.0.1:8000/verify-email/{new_user.pk}/"
     email_msg = EmailMessage(
         subject,
@@ -177,10 +177,10 @@ def verify_email(request, user_id):
         return render(request, 'verify_email.html')
     verify_code = request.POST.get('verify-code')
     if not verify_code:
-        messages.error(request, 'Please enter the verify code')
+        messages.error(request, 'Please enter the verification code')
         return redirect(request.path)
     if check_user.verify_code != verify_code:
-        messages.error(request, 'Wrong verify code')
+        messages.error(request, 'Wrong verification code')
         return redirect(request.path)
     check_user.email_verified = True
     check_user.is_active = True
