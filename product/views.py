@@ -18,8 +18,8 @@ def product_detail(request, category_slug, product_slug):
 
 
 def category(request, category_slug):
-    category = Product.objects.filter(category__slug=category_slug).all()
-    return render(request, 'category.html', {'category': category})
+    categories = Product.objects.filter(category__slug=category_slug).all()
+    return render(request, 'category.html', {'categories': categories})
 
 
 def get_product_id(product_id):
