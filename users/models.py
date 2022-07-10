@@ -30,6 +30,12 @@ class CustomAccountManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
+    def update_user(self, password=None, **other_fields):
+        user = self.model(**other_fields)
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
+
 
 class Users(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(max_length=150, blank=True)

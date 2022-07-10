@@ -3,14 +3,54 @@
 {% block title %}Account{% endblock title %}
 
 {% block content %}
-<h1 class="text-center">Account</h1>
-<div class="container account">
-    <div class="row">
-        <div class="col-12 col-md-10">
-            <div class="d-grid col-9">
-                
-            </div>
-        </div>
-    </div>
+<h1 class="text-center my-3">Account</h1>
+<div class="container account my-2">
+	<div class="row">
+		<div class="col-xl-10 mx-auto">
+			<div class="d-grid col-lg-9 mx-auto">
+				<form class="needs-validation form-control shadow-lg p-4 p-xl-5" novalidate="false" action="{% url 'account' %}"
+					method="post">
+					{% csrf_token %}
+
+					<div class="row g-3">
+						<div class="col-sm-6">
+							<label for="first_name" class="form-label">First name</label>
+							<input type="text" class="form-control shadow-sm" name="first_name" id="first_name"
+								placeholder="First name" value="{{ request.user.first_name }}" required>
+						</div>
+
+						<div class="col-sm-6">
+							<label for="last_name" class="form-label">Last name</label>
+							<input type="text" class="form-control shadow-sm" id="last_name" name="last_name" placeholder="Last name"
+								value="{{ request.user.last_name }}" required>
+						</div>
+
+						<div class="col-12">
+							<label for="email" class="form-label">Email</label>
+							<input type="email" class="form-control shadow-sm" name="email" id="email" placeholder="Email" required
+								value="{{ request.user.email }}" readonly>
+						</div>
+
+						<div class="col-sm-6">
+							<label for="password" class="form-label">Password (optional)</label>
+							<input type="password" class="form-control shadow-sm" name="password" id="password" required
+								placeholder="Password">
+						</div>
+
+						<div class="col-sm-6">
+							<label for="password2" class="form-label">Confirm password</label>
+							<input type="password" class="form-control shadow-sm" name="password2" id="password2"
+								placeholder="Confirm password">
+						</div>
+					</div>
+
+					<hr class="my-4">
+					<div class="d-grid col-9 col-sm-6 col-md-8 col-lg-4 mx-auto shadow-lg">
+						<button class=" btn btn-primary rounded-1 btn-md shadow-sm" type="submit">Save</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 </div>
 {% endblock content %}

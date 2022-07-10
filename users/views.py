@@ -7,6 +7,7 @@ from .models import Address
 from django.contrib.auth import logout, login, authenticate, get_user_model
 from django.contrib import messages
 from general import random_num
+from django.contrib.auth.hashers import make_password
 from django.contrib.auth.decorators import login_required
 
 user = get_user_model()
@@ -81,7 +82,26 @@ def invoices(request):
 
 @login_required
 def account(request):
-    return render(request, 'account.html')
+    if request.method != 'POST':
+        return render(request, 'account.html')
+    first_name = request.POST.get('first_name')
+    last_name = request.POST.get('last_name')
+    password = request.POST.get('password')
+    password2 = request.POST.get('password2')
+    get_user = user.objects.filter(id=request.user.id).first()
+    if not get_user:
+        messages.error(request, 'Invalid user data.')
+        return redirect('account')
+    if password and password2:
+        if password != password2:
+            messages.error(request, 'Password dos not match')
+            return redirect('account')
+        get_user.password = make_password(password)
+
+    get_user.first_name = first_name
+    get_user.last_name = last_name
+    get_user.save()
+    return redirect('account')
 
 
 def logout_view(request):
